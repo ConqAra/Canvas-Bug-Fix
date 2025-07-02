@@ -1,3 +1,5 @@
+# Canvas Bug Fix
+
 A mod dedicated for my [Canvas modpack](https://github.com/ConqAra/Canvas) that forcefully fixes two bugs that are sometimes prominent in 1.18.2 fabric modpacks related to NaN saturation values & generated items with incompatible enchantments.
 
 - For whatever reason saturation on the server-side can reach negative or incorrect values, especially in modpacks. This is almost impossible to detect and very annoying to test, even with a thorough binary search. This weird behavior is now fixed. Upon detecting invalid (NaN/Infinite) saturation value, it will reset the player's saturation value back to normal (4).
