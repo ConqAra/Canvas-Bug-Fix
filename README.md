@@ -1,9 +1,5 @@
-# Fabric Example Mod
+A mod dedicated for my [Canvas modpack](https://github.com/ConqAra/Canvas) that forcefully fixes two bugs that are sometimes prominent in 1.18.2 fabric modpacks related to NaN saturation values & generated items with incompatible enchantments.
 
-## Setup
+- For whatever reason saturation on the server-side can reach negative or incorrect values, especially in modpacks. This is almost impossible to detect and very annoying to test, even with a thorough binary search. This weird behavior is now fixed. Upon detecting invalid (NaN/Infinite) saturation value, it will reset the player's saturation value back to normal (4).
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+- Fixed illegal enchanted items from generating; when using mods that add various different enchantments the game would sometimes ignore the coded incompatabilities with one another onto a loot-generated item, including hardcoded ones from vanilla. Even mods like [Enchantment Groups](https://modrinth.com/mod/enchantmentgroups) that restructure enchantment (in)compatibilites for modpacks wouldn't work. This mod properly corrects this behavior. For example, Protection and Fire Protection on an item will have one of them removed randomly when detected on an armor piece. Enchanted books are ignored, but when put into an anvil with an item it will fix itself post-combination. This should be compatible with every enchantment mod.
